@@ -1,0 +1,12 @@
+BEGIN:VCARD
+VERSION:3.0
+PRODID:-//Apple Inc.//macOS 13.6.4//EN
+N:Snapps;Fred;;;
+FN:Fred Snapps
+ORG:Snoogle;
+EMAIL;type=INTERNET;type=WORK;type=pref:snapps@snoogle.com
+EMAIL;type=INTERNET;type=HOME:snappshome@yahoo.com
+TEL;type=CELL;type=VOICE;type=pref:415-999-2211
+TEL;type=WORK;type=VOICE:510-202-2121
+ADR;type=HOME;type=pref:;;111 Snap Street;San Francisco;CA;94105;USA
+END:VCARD
