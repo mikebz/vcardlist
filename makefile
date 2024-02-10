@@ -14,10 +14,12 @@ RELEASE_DIR = $(WORKDIR)/release
 TEMP_DIR = $(WORKDIR)/tmp
 
 # Build the project
+.PHONY: build
 build:
 	go build -v -o $(BUILD_DIR)/$(PROJECT_NAME)
 
 # Clean up
+.PHONY: clean
 clean:
 	rm -rf $(BUILD_DIR)
 	rm -rf $(TEMP_DIR)
