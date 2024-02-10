@@ -15,3 +15,16 @@ func TestParseOneVcf(t *testing.T) {
 	assert.Equal(t, "Fred Snapps", nameEmail.Name)
 	assert.Equal(t, "snapps@snoogle.com", nameEmail.Email)
 }
+
+// TestParseDir goes through the entire test directory and parses all
+// the items in it.
+func TestParseDir(t *testing.T) {
+	fullPath, _ := filepath.Abs("./testdata")
+	result, err := Parse(fullPath)
+	assert.NoError(t, err)
+	assert.NotNil(t, result)
+	assert.Equal(t, 1, len(*result))
+	nameEmail := (*result)[0]
+	assert.Equal(t, "Fred Snapps", nameEmail.Name)
+	assert.Equal(t, "snapps@snoogle.com", nameEmail.Email)
+}

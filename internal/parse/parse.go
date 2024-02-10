@@ -17,10 +17,26 @@ type NameEmail struct {
 
 // Parse takes the directory, finds all the vCard files
 // in it and then returns the resulting structs
-func Parse(dir string) ([]NameEmail, error) {
+func Parse(dir string) (*[]NameEmail, error) {
 	var nameEmails []NameEmail
 
-	return nameEmails, nil
+	files, err := os.ReadDir(dir)
+	if err != nil {
+		return nil, err
+	}
+
+	for _, file := range files {
+		if file.IsDir() {
+			continue
+		}
+		nameEmail, err := ParseFile(dir + "/" + file.Name())
+		if err != nil {
+			return nil, err
+		}
+		nameEmails = append(nameEmails, *nameEmail)
+	}
+
+	return &nameEmails, nil
 }
 
 // Parse an individual vCard file.  Return an error if
